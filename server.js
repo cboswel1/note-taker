@@ -11,24 +11,20 @@ var PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-//send file
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public/index.html"));
-});
 
 //GET `/notes` - Should return the `notes.html` file.
 app.get("/notes", (req, res) => {
-  res.sendFile(path.join(_dirname, "public/index.html"));
+  res.sendFile(path.join(_dirname, "public/notes.html"));
 });
 
 //* GET `*` - Should return the `index.html` file
 app.get("*", (req, res) => {
-  return
+  res.sendFile(path.join(_dirname, "public/index.html"));
 })
 
 //GET `/api/notes` - Should read the `db.json` file and return all saved notes as JSON.
 app.get("/api/notes", (req, res) => {
-  return res.json(JSON.parse(fs.readFileSync("./db/db.json", "ut-8")));
+  return res.json(JSON.parse(fs.readFileSync(".Develop/db/db.json", "ut-8")));
 });
 
 //POST `/api/notes` - Should receive a new note to save on the request body, add it to the `db.json` file, and then return the new note to the client.
