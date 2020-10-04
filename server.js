@@ -3,6 +3,8 @@ const { notStrictEqual } = require("assert");
 
 var express = require("express");
 var path = require("path");
+var fs = require("fs");
+
 
 
 const app = express();
@@ -11,6 +13,7 @@ var PORT = process.env.PORT || 3000;
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static("public"));
 
 
 //GET `/notes` - Should return the `notes.html` file.
@@ -34,7 +37,7 @@ app.post("/api/notes", (req, res) => {
   //new note 
   const newNote = JSON.parse(fs.readFileSync(".Develop/db/db.json", "utf-8"));
   console.log(newNote);
-  
+
   newNote.push ({
     id:?, //need unique id
     //// req.body hosts is equal to the JSON post sent from the user
