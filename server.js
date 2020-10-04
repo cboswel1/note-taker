@@ -1,4 +1,3 @@
-const { notStrictEqual } = require("assert");
 //List needed Dependencies 
 
 var express = require("express");
@@ -39,7 +38,7 @@ app.post("/api/notes", (req, res) => {
   console.log(newNote);
 
   newNote.push ({
-    id:?, //need unique id
+    // id:?, //need unique id
     //// req.body hosts is equal to the JSON post sent from the user
   // This works because of our body parsing middleware
     title: req.body.title,
