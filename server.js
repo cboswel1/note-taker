@@ -3,7 +3,7 @@
 var express = require("express");
 var path = require("path");
 var fs = require("fs");
-
+var uuid = require("uuid");
 
 
 const app = express();
@@ -38,7 +38,7 @@ app.post("/api/notes", (req, res) => {
   console.log(newNote);
 
   newNote.push ({
-    // id:?, //need unique id
+    id: uuid(),
     //// req.body hosts is equal to the JSON post sent from the user
   // This works because of our body parsing middleware
     title: req.body.title,
