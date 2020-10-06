@@ -17,24 +17,24 @@ app.use(express.static("public"));
 
 //GET `/notes` - Should return the `notes.html` file.
 app.get("/notes", (req, res) => {
-  res.sendFile(path.join(_dirname, "public/notes.html"));
+  res.sendFile(path.join(__dirname, "public/notes.html"));
 });
 
 //* GET `*` - Should return the `index.html` file
 app.get("*", (req, res) => {
-  res.sendFile(path.join(_dirname, "public/index.html"));
+  res.sendFile(path.join(__dirname, "public/index.html"));
 });
 
 //GET `/api/notes` - Should read the `db.json` file and return all saved notes as JSON.
 app.get("/api/notes", (req, res) => {
-  return res.json(JSON.parse(fs.readFileSync(".Develop/db/db.json", "utf-8")));
+  return res.json(JSON.parse(fs.readFileSync("./db/db.json", "utf-8")));
 });
 
 //POST `/api/notes` - Should receive a new note to save on the request body, add it to the `db.json` file, and then return the new note to the client.
 app.post("/api/notes", (req, res) => {
   
   //new note 
-  const newNote = JSON.parse(fs.readFileSync(".Develop/db/db.json", "utf-8"));
+  const newNote = JSON.parse(fs.readFileSync("./db/db.json", "utf-8"));
   console.log(newNote);
 
   newNote.push ({
@@ -45,7 +45,7 @@ app.post("/api/notes", (req, res) => {
     text: req.body.text
   });
 //return to client - convert JSON stringify
-  fs.writeFileSync("./Develop/db/db.json", JSON.stringify(newNote));
+  fs.writeFileSync("./db/db.json", JSON.stringify(newNote));
   //return to user
   res.json(true);
 });
