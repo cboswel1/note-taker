@@ -33,7 +33,7 @@ module.exports = function(app) {
         newNote.push(newData);
 
         //return to client - convert JSON stringify
-        fs.writeFileSync("./db/db.json", JSON.stringify(newNote, null, '\t'));
+        fs.writeFileSync("./db/db.json", JSON.stringify(newNote, null, "\t"));
 
         //return to user
         res.json(newData);
