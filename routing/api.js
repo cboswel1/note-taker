@@ -43,7 +43,7 @@ module.exports = function(app) {
     app.delete("/api/notes/:id", (req, res) => {
         const newNote = JSON.parse(fs.readFileSync("./db/db.json", "utf-8"));
         
-        const newNote = newNote.filter(note => note.id !== req.params.id);
+        newNote = newNote.filter(note => note.id !== req.params.id);
 
         fs.writeFileSync("./db/db.json", JSON.stringify(newNote, null, "\t"));
 
