@@ -1,4 +1,5 @@
-const path = require("path"); 
+const path = require("path");
+const uuid = require("uuid");
 
 module.exports = function(app) {
     //GET `/notes` - Should return the `notes.html` file.
