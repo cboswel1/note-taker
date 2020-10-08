@@ -25,9 +25,7 @@ This repository can be cloned down from Github.com/cboswel1. You must have node.
 [NPM](https://www.npmjs.com/)
 
 ## Preview 
-<img src="" height="256" title="Home Screen">
-
-<img src="" height="256" title="Home Screen">
+<img src="https://raw.githubusercontent.com/cboswel1/note-taker/main/public/assets/Screen%20Shot%202020-10-08%20at%2011.51.14%20AM.png" height="256" title="Home Screen">
 
 
 ## Live Preview 
