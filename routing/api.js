@@ -8,7 +8,7 @@ module.exports = function(app) {
     //GET `/api/notes` - Should read the `db.json` file and return all saved notes as JSON.
     app.get("/api/notes", (req, res) => {
 
-        return JSON.parse(fs.readFileSync('./db/db.json', 'utf-8'));
+        return JSON.parse(fs.readFileSync("./db/db.json", "utf-8"));
 
     });
   
@@ -17,7 +17,7 @@ module.exports = function(app) {
     app.post("/api/notes", (req, res) => {
         
         //new note //req.body?
-        const newNote = JSON.parse(fs.readFileSync('./db/db.json', 'utf-8'));
+        const newNote = JSON.parse(fs.readFileSync("./db/db.json", "utf-8"));
         
     
         newData = {
