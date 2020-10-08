@@ -1,15 +1,17 @@
 //Dependencies 
 const fs = require("fs"); 
 const { v4: uuidv4 } = require('uuid');
-
+const notePath = "./db/db.json";
+function noteContent () {
+    return JSON.parse(fs.readFileSync("./db/db.json", "utf-8"));
+}
 
 module.exports = function(app) {
 
     //GET `/api/notes` - Should read the `db.json` file and return all saved notes as JSON.
     app.get("/api/notes", (req, res) => {
 
-        return JSON.parse(fs.readFileSync("./db/db.json", "utf-8"));
-
+        res.json(noteContent());
     });
   
   
@@ -17,7 +19,7 @@ module.exports = function(app) {
     app.post("/api/notes", (req, res) => {
         
         //new note //req.body?
-        const newNote = JSON.parse(fs.readFileSync("./db/db.json", "utf-8"));
+        const userNote = noteContent();
         
     
         newData = {
@@ -27,13 +29,13 @@ module.exports = function(app) {
         // This works because of our body parsing middleware
         title: req.body.title,
         text: req.body.text
-        }
+        };
 
         //adds new note
-        newNote.push(newData);
+        userNote.push(newData);
 
         //return to client - convert JSON stringify
-        fs.writeFileSync("./db/db.json", JSON.stringify(newNote, null, "\t"));
+        fs.writeFileSync("./db/db.json", JSON.stringify(userNote, null, "\t"));
 
         //return to user
         res.json(newData);
