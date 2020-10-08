@@ -1,6 +1,6 @@
 //Dependencies 
 const fs = require("fs"); 
-const uuid = require("uuid");
+const { v4: uuidv4 } = require('uuid');
 
 
 module.exports = function(app) {
@@ -18,11 +18,11 @@ module.exports = function(app) {
         
         //new note //req.body?
         const newNote = JSON.parse(fs.readFileSync('./db/db.json', 'utf-8'));
-        console.log(newData);
+        
     
         newData = {
         //unique id
-        id: uuid(),
+        id: uuidv4(),
         // req.body hosts is equal to the JSON post sent from the user
         // This works because of our body parsing middleware
         title: req.body.title,
