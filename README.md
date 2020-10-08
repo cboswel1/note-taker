@@ -6,7 +6,7 @@
 
 The Note Taker Application is designed to allow a user to write unique notes, save them on screen, and then delete notes as needed. Utilizing express on the backend, we can retrieve user's data once submitted, and translate from a JSON file to the .html file. 
 
-## Live Site (https://limitless-refuge-57830.herokuapp.com/)
+## [Live Site](https://limitless-refuge-57830.herokuapp.com/)
 
 ## Table of Contents 
   - [Installation](#installation)
